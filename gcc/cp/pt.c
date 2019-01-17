@@ -25607,7 +25607,8 @@ type_dependent_expression_p (tree expression)
 	 that come from the template-id; the template arguments for the
 	 enclosing class do not make it type-dependent unless they are used in
 	 the type of the decl.  */
-      if (PRIMARY_TEMPLATE_P (DECL_TI_TEMPLATE (expression))
+      if ((PRIMARY_TEMPLATE_P (DECL_TI_TEMPLATE (expression))
+	   || DECL_TEMPLATE_SPECIALIZATION (DECL_TI_TEMPLATE (expression)))
 	  && (any_dependent_template_arguments_p
 	      (INNERMOST_TEMPLATE_ARGS (DECL_TI_ARGS (expression)))))
 	return true;
